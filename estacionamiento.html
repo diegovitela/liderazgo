@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Estacionamiento</title>
+    <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: white;
+                color: black;
+                margin: 0;
+                padding: 0;
+            }
+    
+            header {
+                background-color: black;
+                color: white;
+                text-align: center;
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 85%, 75% 100%, 25% 100%, 0 85%);
+            }
+    
+            /* Estilos para el formulario */
+            body {
+                background-color: #fcf9f9;
+                color: #000; /* Color de texto negro */
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+    
+            .container {
+                max-width: 400px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fffdfd;
+                border: 2px solid black; /* Borde negro */
+                border-radius: 0; /* Sin esquinas redondeadas */
+            }
+    
+            label {
+                display: block;
+                margin-bottom: 10px;
+                color: black; /* Color de texto negro */
+            }
+    
+            input[type="text"],
+            input[type="email"],
+            input[type="time"] {
+                width: 95%; /* Reducido para que no se salga del borde */
+                padding: 8px; /* Padding reducido */
+                margin-bottom: 10px;
+                border: 1px solid #f7f5f5;
+                border-radius: 0; /* Sin esquinas redondeadas */
+                background-color: #f2eded;
+                color: black; /* Color de texto negro */
+            }
+    
+            button {
+                font-size: 18px;
+                color: #090909;
+                font-family: inherit;
+                font-weight: 800;
+                cursor: pointer;
+                position: relative;
+                border: none;
+                background: none;
+                text-transform: uppercase;
+                transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+                transition-duration: 400ms;
+                transition-property: color;
+            }
+    
+            button:focus,
+            button:hover {
+                color: #111010;
+            }
+    
+            button:focus:after,
+            button:hover:after {
+                width: 100%;
+                left: 0%;
+            }
+    
+            button:after {
+                content: "";
+                pointer-events: none;
+                bottom: -2px;
+                left: 50%;
+                position: absolute;
+                width: 0%;
+                height: 2px;
+                background-color: #0a0a0a;
+                transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+                transition-duration: 400ms;
+                transition-property: width, left;
+            }
+            .btn-23,
+    .btn-23 *,
+    .btn-23 :after,
+    .btn-23 :before,
+    .btn-23:after,
+    .btn-23:before {
+      border: 0 solid;
+      box-sizing: border-box;
+    }
+    
+    .btn-23 {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-appearance: button;
+      background-color: #000;
+      background-image: none;
+      color: #fff;
+      cursor: pointer;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-size: 100%;
+      font-weight: 900;
+      line-height: 1.5;
+      margin: 0;
+      -webkit-mask-image: -webkit-radial-gradient(#fffcfc, #fff);
+      padding: 0;
+      text-transform: uppercase;
+    }
+    
+    .btn-23:disabled {
+      cursor: default;
+    }
+    
+    .btn-23:-moz-focusring {
+      outline: auto;
+    }
+    
+    .btn-23 svg {
+      display: block;
+      vertical-align: middle;
+    }
+    
+    .btn-23 [hidden] {
+      display: none;
+    }
+    
+    .btn-23 {
+      border-radius: 99rem;
+      border-width: 2px;
+      overflow: hidden;
+      padding: 0.8rem 3rem;
+      position: relative;
+    }
+    
+    .btn-23 span {
+      display: grid;
+      inset: 0;
+      place-items: center;
+      position: absolute;
+      transition: opacity 0.2s ease;
+    }
+    
+    .btn-23 .marquee {
+      --spacing: 5em;
+      --start: 0em;
+      --end: 5em;
+      -webkit-animation: marquee 1s linear infinite;
+      animation: marquee 1s linear infinite;
+      -webkit-animation-play-state: paused;
+      animation-play-state: paused;
+      opacity: 0;
+      position: relative;
+      text-shadow: #fff var(--spacing) 0, #fff calc(var(--spacing) * -1) 0,
+        #fff calc(var(--spacing) * -2) 0;
+    }
+    
+    .btn-23:hover .marquee {
+      -webkit-animation-play-state: running;
+      animation-play-state: running;
+      opacity: 1;
+    }
+    
+    .btn-23:hover .text {
+      opacity: 0;
+    }
+    
+    @-webkit-keyframes marquee {
+      0% {
+        transform: translateX(var(--start));
+      }
+    
+      to {
+        transform: translateX(var(--end));
+      }
+    }
+    
+    @keyframes marquee {
+      0% {
+        transform: translateX(var(--start));
+      }
+    
+      to {
+        transform: translateX(var(--end));
+      }
+      
+    }
+    body {
+      position: relative;
+      min-height: 100vh;  
+    }
+    
+    .center-button {
+      position: absolute;
+      bottom: 20px;  
+      left: 50%;        
+      transform: translateX(-50%); 
+    }
+
+input[type="text"],
+input[type="email"],
+input[type="time"],
+input[type="datetime-local"] { 
+    width: 95%; 
+    padding: 8px; 
+    margin-bottom: 10px;
+    border: 1px solid #f7f5f5;
+    border-radius: 0; 
+    background-color: #f2eded;
+    color: black; 
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Reserva tu lugar de estacionamiento</h1>
+    <form action="https://script.google.com/macros/s/AKfycbzFTifOcrfA6KCdUb8A6rPl_UcJJXNwImnvH0NkE6GTgdqkHyxTpjgt4j4OIBkiQlfm/exec" method="post">
+        <label for="name">Nombre completo:</label>
+        <input type="text" id="name" name="name" placeholder="Ingresa tu nombre completo" required>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+
+        <label for="vehicle">Vehículo (modelo y matrícula):</label>
+        <input type="text" id="vehicle" name="vehicle" placeholder="Modelo y matrícula del vehículo" required>
+
+        <label for="startTime">Hora de inicio:</label>
+        <input type="datetime-local" id="startTime" name="startTime" required>
+
+        <label for="endTime">Hora de fin:</label>
+        <input type="datetime-local" id="endTime" name="endTime" required>
+
+        <button type="submit" class="btn-23">
+            <span>Reservar Plaza</span>
+            <span aria-hidden="" class="marquee">Reservar Plaza</span>
+        </button>
+    </form>
+</div>
+
+</body>
+</html>
+

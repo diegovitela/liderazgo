@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>UP Student</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .btn-12,
+        .btn-12 *,
+        .btn-12 :after,
+        .btn-12 :before,
+        .btn-12:after,
+        .btn-12:before {
+            border: 0 solid;
+            box-sizing: border-box;
+        }
+        .btn-12 {
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+            Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+            Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+            font-size: 100%;
+            font-weight: 900;
+            line-height: 1.5;
+            margin: 1rem;
+            padding: 0.8rem 3rem;
+            text-transform: uppercase;
+            border-radius: 99rem;
+            border-width: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+        .btn-12 span {
+            mix-blend-mode: difference;
+        }
+        .btn-12:after,
+        .btn-12:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                #fff 25%,
+                transparent 0,
+                transparent 50%,
+                #fff 0,
+                #fff 75%,
+                transparent 0
+            );
+            transform: translateY(var(--progress, 100%));
+            transition: transform 0.2s ease;
+        }
+        .btn-12:after {
+            --progress: -100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0,
+                transparent 25%,
+                #fff 0,
+                #fff 50%,
+                transparent 0,
+                transparent 75%,
+                #fff 0
+            );
+            z-index: -1;
+        }
+        loader {
+            position: relative;
+            width: 75px;
+            height: 100px;
+        }
+        .loader__bar {
+            position: absolute;
+            bottom: 0;
+            width: 10px;
+            height: 50%;
+            background: rgb(0, 0, 0);
+            transform-origin: center bottom;
+            box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+        }
+        /* ... (Añadir aquí todas las demás reglas CSS y animaciones para el loader) ... */
+        
+        /* Estilo para ocultar elementos */
+        .oculto {
+            display: none;
+        }
+
+        /* Estilos para los botones y la línea azul entre ellos */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .btn-12 {
+            margin: 10px;
+            /* ... (Otros estilos para los botones) ... */
+        }
+        .btn-12:not(:last-child):after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: blue;
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="cargando">
+        <div class="loader">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+    <div id="app" class="oculto">
+        <h1>UP Student</h1>
+        <div class="btn-container">
+            <a href="padel.html">
+                <button class="btn-12">
+                    <span>Padel</span>
+                </button>
+            </a>
+            <a href="estacionamiento.html">
+                <button class="btn-12">
+                    <span>Estacionamiento</span>
+                </button>
+            </a>
+            <a href="biblioteca.html">
+                <button class="btn-12">
+                    <span>Biblioteca</span>
+                </button>
+            </a>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById('cargando').classList.add('oculto');
+                document.getElementById('app').classList.remove('oculto');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

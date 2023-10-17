@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>UP Student</title>
+</head>
+<body>
+    <div id="cargando">
+        <div class="loader">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+    <div id="app" class="oculto">
+        <h1>Bienvenido a UP Student</h1>
+        <div class="right-section">
+            <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=689546022986-953abosjgdh3e4o9lplknlac3sekvtee.apps.googleusercontent.com&redirect_uri=http://127.0.0.1:5500/ingreso.html&response_type=code&scope=openid%20email&access_type=offline" class="google-link">
+                <button class="btn-12">
+                    <img src="google.png" alt="Google Logo" class="google-logo">
+                    Inicia sesión con Google
+                </button>
+            </a>
+        </div>
+        
+
+
+
+    </div>
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            document.getElementById('cargando').classList.add('oculto');
+            document.getElementById('app').classList.remove('oculto');
+        }, 4000);
+    });
+</script>
+</html>
+
